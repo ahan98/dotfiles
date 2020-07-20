@@ -1,8 +1,4 @@
-# ############################################################### #
-# THE FOLLOWING SECTION CONTAIN SIMPLE MAPPINGS DEMONSTRATING HOW #
-# TO INTERACT WITH THE YABAI WM. THESE ARE SUPPOSED TO BE USED AS #
-# A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
-# ############################################################### #
+# ========== WINDOWS  =============================================
 
 # focus window
 ctrl - h : yabai -m window --focus west
@@ -10,26 +6,51 @@ ctrl - j : yabai -m window --focus south
 ctrl - k : yabai -m window --focus north
 ctrl - l : yabai -m window --focus east
 
+# move managed window
+shift + ctrl - w : yabai -m window --warp north
+shift + ctrl - a : yabai -m window --warp west
+shift + ctrl - s : yabai -m window --warp south
+shift + ctrl - d : yabai -m window --warp east
+
+# toggle float for current window and center float
+ctrl - space : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
+# make floating window fill screen
+cmd + ctrl + shift + alt - space : yabai -m window --grid 1:1:0:0:1
+
+# ========== SPACES ===============================================
+
+# create new space and follow focus
+# ctrl - n : yabai -m space --create; yabai -m space --focus last
+
+# create desktop, move window and follow focus
+ctrl - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
+# destroy space
+ctrl - w : yabai -m space --destroy
+
+# cycle through spaces
+ctrl - q : yabai -m space --focus prev
+ctrl - e : yabai -m space --focus next
+
+# ############################################################### #
+# THE FOLLOWING SECTION CONTAIN SIMPLE MAPPINGS DEMONSTRATING HOW #
+# TO INTERACT WITH THE YABAI WM. THESE ARE SUPPOSED TO BE USED AS #
+# A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
+# ############################################################### #
+
+# see: https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc
+
 # swap managed window
 # shift + alt - h : yabai -m window --swap north
-
-# move managed window
-ctrl - w : yabai -m window --warp north
-ctrl - a : yabai -m window --warp west
-ctrl - s : yabai -m window --warp south
-ctrl - d : yabai -m window --warp east
 
 # balance size of windows
 # shift + alt - 0 : yabai -m space --balance
 
 # make floating window fill left-half of screen
 # shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
-
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-# shift + cmd - n : yabai -m space --create && \
-#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-#                   yabai -m window --space "${index}" && \
-#                   yabai -m space --focus "${index}"
 
 # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
@@ -68,14 +89,6 @@ ctrl - d : yabai -m window --warp east
 
 # toggle window split type
 # alt - e : yabai -m window --toggle split
-
-# toggle float for current window
-ctrl - space : yabai -m window --toggle float;
-# make floating window fill screen
-cmd + ctrl + shift + alt - space : yabai -m window --grid 1:1:0:0:1:1
-
-# center float
-# yabai -m window --grid 4:4:1:1:2:2
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\
