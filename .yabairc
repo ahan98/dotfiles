@@ -1,0 +1,43 @@
+#!/bin/zsh
+
+# ====== TILING SETTINGS ==============================
+
+yabai -m config layout                  bsp
+YABAI="/Users/alex/.config/yabai_scripts"
+
+# ====== APPEARANCE ===================================
+
+# yabai -m config top_padding             20
+# yabai -m config bottom_padding          20
+# yabai -m config left_padding            20
+# yabai -m config right_padding           20
+# yabai -m config window_gap              10
+
+yabai -m config window_border           on
+
+# see: https://github.com/koekeishiya/limelight
+# settings in .limelightrc
+# killall limelight &> /dev/null
+# limelight &> /dev/null &
+
+# ====== SIGNALS ======================================
+
+# Enable i3-gaps style "smart" gaps and borders
+# It only makes sense to have gaps/borders if there are > 1 windows in a space
+# env trick to make fish start up faster
+# yabai -m signal --add event=window_created action=$YABAI/smart_yabai.zsh
+# yabai -m signal --add event=window_destroyed action=$YABAI/smart_yabai.zsh
+
+# yabai -m signal --add event=window_minimized action=$YABAI/smart_yabai.zsh
+# yabai -m signal --add event=window_deminimized action=$YABAI/smart_yabai.zsh
+
+# application launched for the first time doesn't send a window_created signal
+# same goes for application terminated
+# yabai -m signal --add event=application_terminated action=$YABAI/smart_yabai.zsh
+# yabai -m signal --add event=application_launched action=$YABAI/smart_yabai.zsh
+
+# yabai -m signal --add event=space_changed action=$YABAI/smart_yabai.zsh
+
+# switch focus on a closed window
+yabai -m signal --add event=window_minimized action=$YABAI/focus_yabai.zsh
+yabai -m signal --add event=window_destroyed action=$YABAI/focus_yabai.zsh
