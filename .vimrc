@@ -93,8 +93,3 @@ nnoremap FF zA
 " nnoremap <expr> k v:count ? 'k' : 'gk'
 " nnoremap <silent> j gj
 " nnoremap <silent> k gk
-
-"================
-" vim-commentary
-"================
-map <leader>c gcc
