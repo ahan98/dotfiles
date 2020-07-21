@@ -29,12 +29,13 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-" magit
+ " magit
 
 call plug#end()
 
@@ -88,7 +89,12 @@ nnoremap FF zA
 " arrow keys
 "============
 " move cursor visually rather than by (wrapped) lines
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
-onoremap <silent> j gj
-onoremap <silent> k gk
+" nnoremap <expr> j v:count ? 'j' : 'gj'
+" nnoremap <expr> k v:count ? 'k' : 'gk'
+" nnoremap <silent> j gj
+" nnoremap <silent> k gk
+
+"================
+" vim-commentary
+"================
+map <leader>c gcc
