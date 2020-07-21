@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-yabai -m window --focus recent
+yabai -m window --focus last
