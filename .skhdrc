@@ -15,7 +15,7 @@ shift + ctrl - d : yabai -m window --warp east
 # toggle float for current window and center float
 ctrl - space : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
 # make floating window fill screen
-cmd + ctrl + shift + alt - space : yabai -m window --grid 1:1:0:0:1
+cmd + ctrl + shift + alt - space : yabai -m window --grid 1:1:0:0:0:0
 
 # ========== SPACES ===============================================
 
