@@ -25,6 +25,12 @@ yabai -m config window_border           on
 
 # ====== SIGNALS ======================================
 
+# switch focus on a closed window
+yabai -m signal --add event=window_minimized action=$YABAI/focus_yabai.zsh
+yabai -m signal --add event=space_changed action=$YABAI/focus_yabai.zsh
+# yabai -m signal --add event=window_destroyed action=$YABAI/focus_yabai.zsh
+# yabai -m signal --add event=window_deminimized action=$YABAI/focus_yabai.zsh
+
 # Enable i3-gaps style "smart" gaps and borders
 # It only makes sense to have gaps/borders if there are > 1 windows in a space
 # env trick to make fish start up faster
@@ -40,9 +46,3 @@ yabai -m config window_border           on
 # yabai -m signal --add event=application_launched action=$YABAI/smart_yabai.zsh
 
 # yabai -m signal --add event=space_changed action=$YABAI/smart_yabai.zsh
-
-# switch focus on a closed window
-yabai -m signal --add event=window_destroyed action=$YABAI/focus_yabai.zsh
-yabai -m signal --add event=window_minimized action=$YABAI/focus_yabai.zsh
-yabai -m signal --add event=window_deminimized action=$YABAI/focus_yabai.zsh
-# yabai -m signal --add event=space_changed action=$YABAI/layout_bsp.zsh

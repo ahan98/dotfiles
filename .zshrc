@@ -106,7 +106,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias paper="ssh paperspace@74.82.30.49"
 alias jupyter-remote="ssh -N -f -L 8889:localhost:8888 paperspace@74.82.30.49"
-alias wm="brew services restart yabai; brew services restart skhd"
+alias wm="brew services restart yabai; pkill Dock; brew services restart skhd"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

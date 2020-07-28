@@ -6,10 +6,13 @@ set backspace=indent,eol,start " backspace over everything in insert mode
 set number relativenumber
 set cursorline
 set cc=80
+
+" search
 set smartcase
 set ignorecase
 set incsearch
 set hlsearch
+set shortmess-=S " show count in status bar
 
 " wrapping
 set textwidth=80
@@ -30,11 +33,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-commentary'
-Plug 'preservim/nerdcommenter'
+" Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'romainl/vim-cool'
  " magit
 
 call plug#end()
@@ -49,6 +53,9 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_math = 1
 let g:vim_markdown_auto_insert_bullets = 1
 
+" vim-cool
+" let g:CoolTotalMatches = 1 " show num. search results in command-line
+
 """"""""""
 " THEMES "
 """"""""""
@@ -62,7 +69,7 @@ colo gruvbox
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-"let g:airline_theme='base16'
+" let g:airline_theme='base16'
 
 """"""""""""""""
 " KEY BINDINGS "
@@ -93,3 +100,8 @@ nnoremap FF zA
 " nnoremap <expr> k v:count ? 'k' : 'gk'
 " nnoremap <silent> j gj
 " nnoremap <silent> k gk
+
+" ========
+"  splits
+" ========
+nnoremap <leader>w <C-w>
