@@ -93,7 +93,7 @@
                         ]
                     },
                     {
-                        "description": "semicolon = navigation hyper [held]",
+                        "description": "semicolon = navigation hyper",
                         "manipulators": [
                             {
                                 "from": {
@@ -143,7 +143,7 @@
                         ]
                     },
                     {
-                        "description": "hyper + a = hyper + shift",
+                        "description": "nav + a = nav + shift",
                         "manipulators": [
                             {
                                 "from": {
@@ -152,13 +152,9 @@
                                         "mandatory": [
                                             "right_option",
                                             "right_command",
-                                            "right_control"
-                                        ],
-                                        "optional": [
-                                            "right_shift",
-                                            "left_option"
-                                        ]
-                                    }
+                                            "right_control",
+                                            "right_shift"
+                                        ]                                    }
                                 },
                                 "to": [
                                     {
@@ -166,7 +162,8 @@
                                         "modifiers": [
                                             "right_option",
                                             "right_command",
-                                            "right_control"
+                                            "right_control",
+                                            "right_shift"
                                         ]
                                     }
                                 ],
@@ -175,7 +172,7 @@
                         ]
                     },
                     {
-                        "description": "change s to option on nav",
+                        "description": "nav + s = nav + option",
                         "manipulators": [
                             {
                                 "from": {
@@ -208,7 +205,7 @@
                         ]
                     },
                     {
-                        "description": "symbol hyper mappings",
+                        "description": "symbol mappings",
                         "manipulators": [
                             {
                                 "from": {
