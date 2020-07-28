@@ -19,14 +19,13 @@ cmd + ctrl + shift + alt - space : yabai -m window --grid 1:1:0:0:0:0
 
 # ========== SPACES ===============================================
 
-# create new space and follow focus
-# ctrl - n : yabai -m space --create; yabai -m space --focus last
-
-# create desktop, move window and follow focus
+# move window to new space next to current space and follow focus
 ctrl - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+           newspace="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+           yabai -m window --space "${newspace}" && \
+           current="$(yabai -m query --spaces --space | jq '.index')" &&\
+           yabai -m space "$((current + 1))" --swap "${newspace}" && \
+           yabai -m space --focus "$((current + 1))"
 
 # destroy space
 ctrl - w : yabai -m space --destroy
