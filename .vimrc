@@ -1,45 +1,18 @@
-"""""""""""""""""""
-" EDITOR SETTINGS "
-"""""""""""""""""""
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set backspace=indent,eol,start " backspace over everything in insert mode
-set number relativenumber
-set cursorline
-set cc=80
-
-" search
-set smartcase
-set ignorecase
-set incsearch
-set hlsearch
-set shortmess-=S " show count in status bar
-
-" wrapping
-set textwidth=80
-set wrapmargin=0
-set formatoptions+=t
-set linebreak " (optional - breaks by word rather than character)
-
-set formatoptions-=cro
-set conceallevel=3
-set foldenable
-
 """""""""""
 " PLUGINS "
 """""""""""
-filetype plugin on
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-commentary'
-" Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'romainl/vim-cool'
- " magit
+Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'preservim/nerdcommenter'
+" magit
 
 call plug#end()
 
@@ -55,6 +28,34 @@ let g:vim_markdown_auto_insert_bullets = 1
 
 " vim-cool
 " let g:CoolTotalMatches = 1 " show num. search results in command-line
+
+"""""""""""""""""""
+" EDITOR SETTINGS "
+"""""""""""""""""""
+
+set tabstop=4 shiftwidth=4 expandtab
+
+set backspace=indent,eol,start " backspace over everything in insert mode
+set number relativenumber
+set cursorline
+set cc=80
+
+" search
+set smartcase
+set ignorecase
+set incsearch
+set hlsearch
+set shortmess-=S " show search count in status bar
+
+" wrapping
+set textwidth=80
+set wrapmargin=0
+set formatoptions+=t
+set linebreak " (optional - breaks by word rather than character)
+
+set formatoptions-=cro
+set conceallevel=3
+set foldenable
 
 """"""""""
 " THEMES "
