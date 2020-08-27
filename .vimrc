@@ -11,10 +11,14 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'romainl/vim-cool'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'preservim/nerdcommenter'
 " magit
 
 call plug#end()
+
+" coc Intellisense
+" source ~/.vim/coc.vim
 
 " Instant Markdown
 let g:instant_markdown_mathjax = 1
@@ -54,7 +58,6 @@ set formatoptions+=t
 set linebreak " (optional - breaks by word rather than character)
 
 set formatoptions-=cro
-set conceallevel=3
 set foldenable
 
 """"""""""

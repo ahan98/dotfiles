@@ -23,7 +23,7 @@ cmd + ctrl + shift + alt - space : yabai -m window --grid 1:1:0:0:0:0
 ctrl - n : yabai -m space --create && \
            newspace="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
            yabai -m window --space "${newspace}" && \
-           current="$(yabai -m query --spaces --space | jq '.index')" &&\
+           current="$(yabai -m query --spaces --space | jq .index)" &&\
            yabai -m space "$((current + 1))" --swap "${newspace}" && \
            yabai -m space --focus "$((current + 1))"
 
